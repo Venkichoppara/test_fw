@@ -6,19 +6,14 @@ require('./waitReady'); //Import waitready for element to appear
 var Page = (function () {
     function Page() {
 
+        
+
         /*To click on button or link using locator
          * @param {string} locator*/
         this.clickOnElement = function (locator) {
             element(locator).waitReady();
             element(locator).click();
         };
-
-        this.captureScreenshot = function(locator){
-            browser.takeScreenshot().then(function (png) {
-            fs.writeFileSync('./screenshots/', png, { encoding: 'base64' }, console.log);
-            console.log("ExecutionLog : writing screenshot to " + locator + '.png');
-
-    }
 
         //Function to validate the scroolbar is working
         this.isScrollBarIsScrollable = function() {
@@ -27,6 +22,7 @@ var Page = (function () {
                 sikuli("find", "./waitScrollBar.png") && 
                 sikuli("dragDrop", "./dragScrollBar.png", "./dropScrollBar.png")
             });
+        }
 
         var sikuli = function (args) {
             try {
@@ -77,7 +73,8 @@ var Page = (function () {
                     break;
             };
         };
-    };
+
+    }
 
     return Page;
 })();
