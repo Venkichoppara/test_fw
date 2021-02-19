@@ -9,7 +9,7 @@ exports.config = {
   capabilities: env.capabilities,
 
 
-  allScriptsTimeout: 60000,
+  allScriptsTimeout: 50000,
 
   restartBrowserBetweenTests: env.restartBrowserBetweenTests,
 
